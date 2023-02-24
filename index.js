@@ -49,8 +49,12 @@ const nonInteractiveMode = () => {
     } else if (!checkFormat(data)) {
       console.log("Invalid file format");
     } else {
-      const [a, b, c] = data.split(" ");
-      solver(a, b, c);
+      const [a, b, c] = data.split(" ").map(string => parseFloat(string));
+      if (a === 0) {
+        console.log("Error. a cannot be 0")
+      } else {
+        solver(a, b, c);
+      }
     }
   });
 };
