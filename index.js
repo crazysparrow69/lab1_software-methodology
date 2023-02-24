@@ -1,4 +1,12 @@
 
+const checkNum = (data) => {
+  const num = parseFloat(data.toString());
+  if (isNaN(num) || data.toString().trim().length !== num.toString().length) {
+    return false;
+  }
+  return true;
+};
+
 const interactiveMode = () => {
   const params = [];
   const questions = ["a = ", "b = ", "c = "];
