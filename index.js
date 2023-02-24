@@ -1,3 +1,6 @@
+const fs = require("fs");
+
+const filePath = process.argv[2];
 
 const checkNum = (data) => {
   const num = parseFloat(data.toString());
@@ -33,6 +36,23 @@ const interactiveMode = () => {
   });
 
   process.stdout.write(questions[0]);
+};
+
+const nonInteractiveMod = () => {
+  const checkFormat = (data) => {
+    return /^-?\d(\.\d+)?\s-?\d(\.\d+)?\s-?\d(\.\d+)?$/.test(data);
+  };
+
+  fs.readFile(filePath, "utf8", (err, data) => {
+    if (!fs.existsSync(filePath)) {
+      console.log(`File ${filePath} does not exist`);
+    } else if (!checkFormat(data)) {
+      console.log("Invalid file format");
+    } else {
+      const [a, b, c] = data.split(" ");
+      solver(a, b, c);
+    }
+  });
 };
 
 const solver = (a, b, c) => {
