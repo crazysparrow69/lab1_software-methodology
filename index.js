@@ -51,7 +51,3 @@ const solver = (a, b, c) => {
     return console.log(`x1 = ${x1.toFixed(2)}\nx2 = ${x2.toFixed(2)}`);
   }
 };
-
-while (true) {
-  console.log("Bug")
-}
