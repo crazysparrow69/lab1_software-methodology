@@ -46,12 +46,15 @@ const nonInteractiveMode = () => {
   fs.readFile(filePath, "utf8", (err, data) => {
     if (!fs.existsSync(filePath)) {
       console.log(`File ${filePath} does not exist`);
+      process.exit(1);
     } else if (!checkFormat(data)) {
       console.log("Invalid file format");
+      process.exit(1);
     } else {
       const [a, b, c] = data.split(" ").map(string => parseFloat(string));
       if (a === 0) {
         console.log("Error. a cannot be 0")
+        process.exit(1);
       } else {
         solver(a, b, c);
       }
