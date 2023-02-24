@@ -38,7 +38,7 @@ const interactiveMode = () => {
   process.stdout.write(questions[0]);
 };
 
-const nonInteractiveMod = () => {
+const nonInteractiveMode = () => {
   const checkFormat = (data) => {
     return /^-?\d(\.\d+)?\s-?\d(\.\d+)?\s-?\d(\.\d+)?$/.test(data);
   };
@@ -75,5 +75,5 @@ const solver = (a, b, c) => {
 if (!filePath) {
   interactiveMode();
 } else {
-  nonInteractiveMod();
+  nonInteractiveMode();
 }
